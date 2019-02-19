@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Uploader</title>
+    <link rel="stylesheet" href="../META-INF/resources/pui-components-17.1.0.css" data-th-href="@{/pui-components-17.1.0.css}">
+    <style>
+        .content {
+            padding: 32px
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <h3>Login Form</h3>
+    <div data-th-if="${error != null}">
+        <div class="alert pui-alert alert-danger pui-alert-danger" role="alert">
+            <div class="grid">
+                <div class="col col-middle">[[${error}]]</div>
+            </div>
+        </div>
+        <br>
+    </div>
+    <form class="form" data-th-action="@{/login}" method="post">
+        <fieldset>
+            <div>
+                <div class="grid">
+                    <div class="col">
+                        <div class="form-unit inline-form-unit">
+                            <div class="grid grid-inline">
+                                <div class="col col-fixed label-row">
+                                    <label for="uaaUrl">UAA URL</label>
+                                </div>
+                                <div class="col field-row">
+                                    <input type="url" name="uaaUrl" id="uaaUrl" value="" class="" required="required"/>
+                                </div>
+                            </div>
+                            <div class="grid">
+                                <div class="col help-row type-dark-5"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid">
+                    <div class="col">
+                        <div class="form-unit inline-form-unit">
+                            <div class="grid grid-inline">
+                                <div class="col col-fixed label-row">
+                                    <label for="clientId">Client ID (<code>uaa.admin</code>)</label>
+                                </div>
+                                <div class="col field-row">
+                                    <input type="text" name="clientId" id="clientId" value="" class="" required="required"/>
+                                </div>
+                            </div>
+                            <div class="grid">
+                                <div class="col help-row type-dark-5"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-unit inline-form-unit">
+                            <div class="grid grid-inline">
+                                <div class="col col-fixed label-row">
+                                    <label for="clientSecret">Client Secret<span class="optional-text type-neutral-4"></span> </label>
+                                </div>
+                                <div class="col field-row">
+                                    <input type="password" name="clientSecret" id="clientSecret" value="" class="" required="required"/>
+                                </div>
+                            </div>
+                            <div class="grid">
+                                <div class="col help-row type-dark-5"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid">
+                    <div class="col">
+                        <div class="form-unit inline-form-unit">
+                            <div class="grid grid-inline">
+                                <div class="col col-fixed label-row">
+                                    <label for="skipTlsValidation">Skip TLS Validation</label>
+                                </div>
+                                <div class="col field-row">
+                                    <div class="pui-toggle">
+                                        <input type="checkbox" class="toggle-switch pui-toggle-switch" id="skipTlsValidation" name="skipTlsValidation"/>
+                                        <label for="skipTlsValidation" class="medium"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid">
+                                <div class="col help-row type-dark-5"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-fixed">
+                        <button class="pui-btn pui-btn-primary btn btn-primary" type="submit" aria-label="Login"><span
+                                class="btn-inner-content pui-btn-inner-content"><span>Login</span> </span></button>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+    <form data-th-action="@{/logout}" method="get">
+        <button class="pui-btn pui-btn-primary-alt btn btn-primary-alt" type="submit" aria-label="Logout"><span
+                class="btn-inner-content pui-btn-inner-content"><span>Logout</span> </span></button>
+    </form>
+</div>
+</body>
+</html>
