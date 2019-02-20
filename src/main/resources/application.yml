@@ -1,0 +1,1 @@
+logging.level.org.springframework.security.web.access.intercept.FilterSecurityIntercepto: DEBUG
