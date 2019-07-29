@@ -10,6 +10,23 @@ java -jar target/uaa-ui-0.0.1-SNAPSHOT.jar
 
 Go to [http://localhost:8080](http://localhost:8080)
 
+## Deploy to Cloud Foundry
+
+```yaml
+applications:
+- name: uaa-ui
+  path: target/uaa-ui-0.0.1-SNAPSHOT.jar
+  env:
+    CA_CERTS: |
+      -----BEGIN CERTIFICATE-----
+      CA for UAA if needed
+      -----END CERTIFICATE-----
+```
+
+```
+cf push
+```
+
 ## Screen shots
 
 Login with a UAA client which has `uaa.admin` authority.
